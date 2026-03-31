@@ -1,1 +1,1 @@
-# SoloProject_MoSpiegel_ComputerProgramming2
+# Solo Project | Mo Spiegel | Computer Programming 2
