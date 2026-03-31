@@ -1,3 +1,4 @@
 # Special Relativity Clocks
 ## Mo Spiegel
-### Computer Programming 2
+### Project Proposal
+
