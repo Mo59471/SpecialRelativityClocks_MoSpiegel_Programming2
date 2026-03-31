@@ -1,4 +1,4 @@
-# Special Relativity Clocks
+# Relativistic Boats
 ## Mo Spiegel
 
 &nbsp;
