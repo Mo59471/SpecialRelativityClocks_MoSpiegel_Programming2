@@ -12,6 +12,7 @@ class Button:
         self.hovImg = hovImg
         self.clickImg = clickImg
         self.hovering = False
+        self.disT = -1
 
     def display(self, screen, clicked):
         if clicked == False and self.hovering:
