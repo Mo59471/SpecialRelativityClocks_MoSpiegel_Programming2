@@ -14,9 +14,11 @@ backImg = pygame.image.load("Background.png").convert_alpha()
 sidebarImg = pygame.image.load("Sidebar.png")
 sidebarOverlayImg = pygame.image.load("SidebarOverlay.png").convert_alpha()
 sidebarElementImg = pygame.image.load("SidebarElements.png").convert_alpha()
+starImg = pygame.image.load("Star.png").convert_alpha()
+ 
 
 
-def display(screen, clicked):
+def display(screen, clicked, justClicked):
 
     # Draw background
     screen.blit(backImg, (0,0))
@@ -30,6 +32,14 @@ def display(screen, clicked):
     for button in buttons:
         button.hover()
         button.display(screen, clicked)
+        
+    # Draw checkboxes
+    for checkbox in checkboxes:
+        checkbox.hover()
+        checkbox.check(justClicked)
+        checkbox.display(screen)
+        if checkbox.checked == 1:
+            screen.blit(starImg, (31, checkbox.y - 6))
     
     # Draw and update slider
     slider.display(screen, clicked)
@@ -41,8 +51,10 @@ def display(screen, clicked):
 def getdt():
     pass
 
-# Initialize data
+# Initialize data                      
+
 clicked = False
+justClicked = False
 showClocks = True
 lorentzC = True
 dt = 0
@@ -58,9 +70,19 @@ buttonData = [
     
     {"label" : "equations", "x": 30, "y": 725, "w": 258, "h": 75, "img": pygame.image.load("EquationButtonNorm.png").convert_alpha(), 
     "hovImg": pygame.image.load("EquationButtonHov.png").convert_alpha(), "clickImg": pygame.image.load("EquationButtonClick.png").convert_alpha()}
-            ]
+    
+]
+
+# Initialize checkbox data
+checkboxData = [
+    {"label" : "lorentz contraction", "y": 255, "img" : pygame.image.load("LorentzCheckboxNorm.png").convert_alpha(), "hovImg" : pygame.image.load("LorentzCheckboxHover.png").convert_alpha()},
+    
+    {"label" : "show clocks", "y": 314, "img" : pygame.image.load("ClockCheckboxNorm.png").convert_alpha(), "hovImg" : pygame.image.load("ClockCheckboxHover.png").convert_alpha()}
+ 
+]
 
 buttons = []
+checkboxes = []
 
 # Initialize slider
 slider = Slider()
@@ -68,11 +90,17 @@ slider = Slider()
 # Initialize buttons
 for data in buttonData:
     buttons.append(Button(**data))
+    
+# Initialize checkboxes
+for data in checkboxData:
+    checkboxes.append(Checkbox(**data))
 
 # Appliction loop
 running = True
 while running:
 
+    justClicked = False
+    
     # Event Detection
     for event in pygame.event.get():
         
@@ -82,6 +110,7 @@ while running:
         elif event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 clicked = True
+                justClicked = True
                 mouseX, mouseY = pygame.mouse.get_pos()
         
                 # Slider logic
@@ -89,14 +118,12 @@ while running:
                     slider.hovering = True       
                 else:
                     slider.hovering = False
-                    
-                # Click logic
-                
+                        
         elif event.type == pygame.MOUSEBUTTONUP:
             if event.button == 1:
                 clicked = False
 
     # Method calls
-    display(screen, clicked)
+    display(screen, clicked, justClicked)
     
     clock.tick(60)
