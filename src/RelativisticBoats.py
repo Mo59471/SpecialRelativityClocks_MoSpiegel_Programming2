@@ -5,7 +5,7 @@ from Checkbox import Checkbox
 from Clock import Clock
 from Slider import Slider
 
-pygame.display.init()
+pygame.init()
 
 screen = pygame.display.set_mode((1150,850))
 
@@ -15,10 +15,9 @@ sidebarImg = pygame.image.load("Sidebar.png")
 sidebarOverlayImg = pygame.image.load("SidebarOverlay.png").convert_alpha()
 sidebarElementImg = pygame.image.load("SidebarElements.png").convert_alpha()
 starImg = pygame.image.load("Star.png").convert_alpha()
- 
 
 
-def display(screen, clicked, justClicked):
+def display(screen, clicked, justClicked, v, font1):
 
     # Draw background
     screen.blit(backImg, (0,0))
@@ -28,6 +27,12 @@ def display(screen, clicked, justClicked):
     screen.blit(sidebarOverlayImg, (0,0))
     screen.blit(sidebarElementImg, (0,0))
     
+    # Draw text
+    vText = font1.render(f"v = {int(v)} m/s", True, (172,176,222))
+    vRect = vText.get_rect()
+    vRect.center = (157,515)
+    screen.blit(vText, vRect)
+
     # Draw buttons
     for button in buttons:
         button.hover()
@@ -42,7 +47,7 @@ def display(screen, clicked, justClicked):
             screen.blit(starImg, (31, checkbox.y - 6))
     
     # Draw and update slider
-    slider.display(screen, clicked)
+    slider.display(screen, clicked)    
     
     # Update screen
     pygame.display.flip()
@@ -53,12 +58,15 @@ def getdt():
 
 # Initialize data                      
 
+font1 = pygame.font.Font("MavenPro-Bold.ttf", 20)
+
 clicked = False
 justClicked = False
 showClocks = True
 lorentzC = True
 dt = 0
 clock = pygame.time.Clock()
+v = 0
 
 # Initialize button data
 buttonData = [
@@ -124,6 +132,7 @@ while running:
                 clicked = False
 
     # Method calls
-    display(screen, clicked, justClicked)
+    v = slider.getV()
+    display(screen, clicked, justClicked, v, font1)
     
     clock.tick(60)
