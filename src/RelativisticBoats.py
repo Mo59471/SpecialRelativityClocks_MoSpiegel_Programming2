@@ -19,7 +19,7 @@ starImg = pygame.image.load("Star.png").convert_alpha()
 typeBarImg = pygame.image.load("TypeBar.png").convert_alpha()
 
 
-def display(screen, clicked, justClicked, v, font1, font2, input, toggleT, time):
+def display(screen, clicked, justClicked, v, font1, font2, input, toggleT, time, tx):
 
     # Draw background
     screen.blit(backImg, (0,0))
@@ -33,7 +33,7 @@ def display(screen, clicked, justClicked, v, font1, font2, input, toggleT, time)
     if toggleT == 1:
         screen.blit(typeBarImg, (0,0))
         if time <= 20:
-            pygame.draw.line(screen, (255,255,255), (346,770), (346, 798), 2)
+            pygame.draw.line(screen, (255,255,255), (346 + tx,770), (346 + tx, 798), 2)
 
     # Draw text
     vText = font1.render(f"v = {int(v)} m/s", True, (172,176,222))
@@ -44,6 +44,9 @@ def display(screen, clicked, justClicked, v, font1, font2, input, toggleT, time)
     tText = font2.render(input, True, (243, 243, 243))
     tRect = tText.get_rect()
     tRect.topleft = (346,760)
+    if toggleT == 1:
+        screen.blit(tText, tRect)
+
 
     # Draw buttons
     for button in buttons:
@@ -85,7 +88,7 @@ v = 0
 input = ""
 toggleT = -1
 time = 0
-greaterC = False
+tx = 0
 
 # Initialize button data
 buttonData = [
@@ -156,20 +159,13 @@ while running:
         
         # Number typing
         elif event.type == pygame.KEYDOWN:
-            if input == "":
-                greaterC = True
-            elif input != "":
-                if input[len(input)-1] == ".":
-                    if float(input + "0") <= 299792458:
-                        greaterC = True
-                elif float(input) <= 299792458:
-                    greaterC = True
-
-            if greaterC == True:
+            if toggleT == 1:
                 if event.key == pygame.K_1 or event.key == pygame.K_KP1:
                     input = input + "1"
+                    tx += 16
                 elif event.key == pygame.K_2 or event.key == pygame.K_KP2:
                     input = input + "2"
+                    tx += 21
                 elif event.key == pygame.K_3 or event.key == pygame.K_KP3:
                     input = input + "3"
                 elif event.key == pygame.K_4 or event.key == pygame.K_KP4:
@@ -201,7 +197,7 @@ while running:
 
     # Method calls
     v = slider.getV()
-    display(screen, clicked, justClicked, v, font1, font2, input, toggleT, time)
+    display(screen, clicked, justClicked, v, font1, font2, input, toggleT, time, tx)
     getdt(v)
     
     clock.tick(60)
