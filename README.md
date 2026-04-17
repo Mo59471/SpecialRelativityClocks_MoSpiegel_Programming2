@@ -68,21 +68,12 @@ Implementing the elegant graphics that I'm planning will likely be the most diff
 
 &nbsp;
 
-## Phase 1 Progress
-- Outlined class structure in source files
-- Completed button class
-- Blocked out UI in main file
-### Created Classes
-- Button class
-- Slider class
-- Checkbox class
-- Clock class
-- Boat class
-### Next Steps
-- Write display methods for rest of classes
-- Enable button clicking functionality through the main file
-- Write movement class for boat or tick class for clock
-- Write getdt method in main file (method will contain mathematics of special relativity)
+## Phase 2 Progress
+- Added typing to input velocity
+- Added working buttons
+- Added working slider
+- Added working checkbox
+- Completed time dilation logic
 
 &nbsp;
 
