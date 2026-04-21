@@ -7,8 +7,11 @@ class Boat:
         self.speed = 0
         
     def display(self, screen, v):
+        self.x = self.x + v/40000000
         screen.blit(self.img, (self.x,0))
-        self.x == self.x + v
+        if self.x > 820:
+            self.x = -50
+        
 
     def move(self, v):
         pass
