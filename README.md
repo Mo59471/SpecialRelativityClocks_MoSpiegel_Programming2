@@ -3,6 +3,12 @@
 
 &nbsp;
 
+## User Information
+- Click on the velocity underneath the slider to access a panel to type velocity manually
+- Click on the X in the top right corner to get to the end screen
+
+&nbsp;
+
 ## Project Description
 This project will be an interactive simulator that allows a user to input a velocity of a moving boat, and then see the time dilation (from their reference frame) occurring on the boat via two clocks that tick in accordance with the laws of special relativity, one for the user's rest frame, and one for the boat. The program will feature an artistic and elegant UI, customizability options, and Lorentz contraction of the boat as well to further provide an intuitive grasp of relativistic phenomena.
 
@@ -68,12 +74,11 @@ Implementing the elegant graphics that I'm planning will likely be the most diff
 
 &nbsp;
 
-## Phase 2 Progress
-- Added typing to input velocity
-- Added working buttons
-- Added working slider
-- Added working checkbox
-- Completed time dilation logic
+## Phase 3 Progress
+- Implemented start screen
+- Implemented end screen
+- Implemented moving boat
+- Implemented time dilation and time tracking logic
 
 &nbsp;
 
