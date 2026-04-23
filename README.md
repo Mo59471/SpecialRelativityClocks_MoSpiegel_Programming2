@@ -74,6 +74,11 @@ Implementing the elegant graphics that I'm planning will likely be the most diff
 
 &nbsp;
 
+## Dependencies
+- This project requires the Pygame graphics library
+
+&nbsp;
+
 ## Phase 3 Progress
 - Implemented start screen
 - Implemented end screen
