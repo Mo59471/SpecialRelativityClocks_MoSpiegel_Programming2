@@ -3,6 +3,13 @@
 
 &nbsp;
 
+## Borrowed Media: 
+- Background Music: Reverie, by Claude Debussy (Aquired from https://www.classicals.de/debussy-reverie, recorded, produced, and published by Gregor Quendel)
+- Click Sound: From https://uppbeat.io/sfx/category/click, "Mouse click - negative click" published by Jam FX
+- Boat Image: From https://pngtree.com/freepng/cartoon-hand-drawn-purple-boat-ship-vector_21770204.html
+
+&nbsp;
+
 ## User Information
 - Click on the velocity underneath the slider to access a panel to type velocity manually
 - Click on the X in the top right corner to get to the end screen
