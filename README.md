@@ -8,6 +8,8 @@
 - Click Sound: From https://uppbeat.io/sfx/category/click, "Mouse click - negative click" published by Jam FX
 - Keyboard Sound: From https://uppbeat.io/sfx/category/click/keyboard-click, "Computer keystroke (Single)" published by FascinatedSound
 - Boat Image: From https://pngtree.com/freepng/cartoon-hand-drawn-purple-boat-ship-vector_21770204.html
+- Music Icon: From https://www.vecteezy.com/png/9346118-musical-note-flat-icon
+- Noise Icon: https://commons.wikimedia.org/wiki/File:Speaker_Icon.svg
 
 &nbsp;
 
