@@ -89,11 +89,4 @@ Implementing the elegant graphics that I'm planning will likely be the most diff
 
 &nbsp;
 
-## Phase 3 Progress
-- Implemented start screen
-- Implemented end screen
-- Implemented moving boat
-- Implemented time dilation and time tracking logic
-
-&nbsp;
 
