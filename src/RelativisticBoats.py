@@ -130,7 +130,7 @@ def display(screen, clicked, justClicked, v, font1, font2, font3, font4, input, 
         if play == 1:
             tClock.tick(dt)
         if showClocks == 1:
-            tClock.display(screen, font1, play)
+            tClock.display(screen, font1)
                     
     # Update screen
     pygame.display.flip()
